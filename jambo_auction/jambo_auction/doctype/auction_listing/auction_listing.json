@@ -1,0 +1,118 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-06-02 10:05:36.967455",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "auction_event",
+  "consigned_item",
+  "current_highest_bid",
+  "column_break_ampb",
+  "reserve_price",
+  "starting_bid",
+  "current_bid",
+  "highest_bidder",
+  "section_break_xxzj",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Name",
+   "options": "AUC-.YYYY.-MM.-####"
+  },
+  {
+   "fieldname": "auction_event",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Auction Event",
+   "options": "Auction Event"
+  },
+  {
+   "fieldname": "consigned_item",
+   "fieldtype": "Link",
+   "label": "Consigned Item",
+   "options": "Consigned Items"
+  },
+  {
+   "fieldname": "column_break_ampb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reserve_price",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Reserve Price",
+   "read_only": 1
+  },
+  {
+   "fieldname": "current_bid",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Current Bid",
+   "read_only": 1
+  },
+  {
+   "fieldname": "starting_bid",
+   "fieldtype": "Currency",
+   "label": "Starting Bid",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_xxzj",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Pending\nLive\nSold\nUnsold\nWithdrawn"
+  },
+  {
+   "fieldname": "current_highest_bid",
+   "fieldtype": "Currency",
+   "label": "Current Highest Bid",
+   "options": "Bid"
+  },
+  {
+   "fieldname": "highest_bidder",
+   "fieldtype": "Link",
+   "label": "Highest Bidder",
+   "options": "Bidders"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-03 03:52:57.352819",
+ "modified_by": "Administrator",
+ "module": "Jambo Auction",
+ "name": "Auction Listing",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

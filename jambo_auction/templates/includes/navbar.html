@@ -1,0 +1,62 @@
+<head>
+    <link rel="stylesheet" href="/assets/jambo_auction/css/navbar.css">
+   <script src="/assets/frappe/js/frappe-web.bundle.js"></script>
+
+</head>
+<nav class="jambo-navbar">
+
+    <!-- LEFT -->
+    <div class="nav-left">
+        <img src="{{ logo or '/private/files/logo.png' }}" alt="Logo" class="logo">
+        <span class="brand">Jambo Auc. Ltd</span>
+    </div>
+
+    <!-- CENTER -->
+    <div class="nav-center">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/services">Services</a>
+        <a href="/contact">Contact</a>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="nav-right">
+
+        <div class="profile">
+
+            <button class="profile-btn">
+                👤 {{ frappe.session.user }}
+            </button>
+
+            <div class="dropdown">
+                <a href="/profile">View Profile</a>
+                <a href="#" onclick="logoutUser(event)">Logout</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const btn = document.querySelector(".profile-btn");
+        const dropdown = document.querySelector(".dropdown");
+
+        btn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            dropdown.classList.toggle("show");
+        });
+
+        document.addEventListener("click", function () {
+            dropdown.classList.remove("show");
+        });
+
+    });
+   
+
+
+</script>

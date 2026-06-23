@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>About Us</title>
+
+    <!-- GOOGLE FONTS -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap"
+        rel="stylesheet">
+
+    <!-- MATERIAL ICONS -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="/assets/jambo_auction/css/about.css">
+
+    <link rel="icon" href="/assets/jambo_auction/images/logo.png" type="image/png">
+
+
+
+
+</head>
+
+<body>
+    {% include "jambo_auction/templates/includes/navbar.html" %}
+
+    <div class="jambo-about">
+
+<!-- HERO -->
+<section class="hero">
+    <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+        <div class="tag">ESTABLISHED EXCELLENCE</div>
+
+        <h1>
+            <span style="color: grey !important;">Redefining the </span>
+            <span>Auction Standard</span>
+        </h1>
+
+        <p>
+            A legacy of precision and trust in asset liquidation. We bridge tradition and technology for global collectors.
+        </p>
+    </div>
+</section>
+
+<!-- GRID -->
+<section class="grid">
+
+    <!-- MISSION -->
+    <div class="card span-8 gold-hover">
+        <h2>Our Mission</h2>
+        <p class="muted">
+            Empowering auctioneers with millisecond execution, transparency, and secure global asset exchange systems.
+        </p>
+
+        <div style="display:flex; gap:30px; margin-top:20px;">
+            <div>
+                <div class="stat">0.02ms</div>
+                <div class="label">Latency</div>
+            </div>
+            <div>
+                <div class="stat">100%</div>
+                <div class="label">Integrity</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GLOBAL -->
+    <div class="card span-4 gold-hover" style="text-align:center;">
+        <h2>Global Reach</h2>
+        <div class="stat">142+</div>
+        <div class="label">Countries</div>
+    </div>
+
+    <!-- HERITAGE -->
+    <div class="card span-4 gold-hover">
+        <h2>Heritage</h2>
+        <div class="timeline">
+
+            <div><span class="dot"></span><strong>1998</strong><p class="muted">Foundation in London</p></div>
+            <div><span class="dot"></span><strong>2012</strong><p class="muted">Digital auction engine</p></div>
+            <div><span class="dot"></span><strong>2024</strong><p class="muted">Global expansion</p></div>
+
+        </div>
+    </div>
+
+    <!-- METRICS -->
+    <div class="card span-8 gold-hover">
+        <h2>Market Velocity</h2>
+        <p class="muted">
+            Processing billions in asset transactions with enterprise-grade stability.
+        </p>
+
+        <div style="display:flex; gap:40px; margin-top:20px; flex-wrap:wrap;">
+            <div>
+                <div class="stat">$14.2B</div>
+                <div class="label">Assets Sold</div>
+            </div>
+            <div>
+                <div class="stat">850K+</div>
+                <div class="label">Registered Bidders</div>
+            </div>
+            <div>
+                <div class="stat">99.9%</div>
+                <div class="label">Uptime</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EXECUTIVE LEADERSHIP -->
+    <div class="card span-12 gold-hover">
+        <h2>Executive Leadership</h2>
+        <p class="muted">The minds steering the future of digital asset exchange.</p>
+
+        <div class="leaders">
+
+            <div class="leader">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80">
+                <h4>Marcus Thorne</h4>
+                <p>Chief Executive Officer</p>
+            </div>
+
+            <div class="leader">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80">
+                <h4>Elena Vance</h4>
+                <p>Head of Operations</p>
+            </div>
+
+            <div class="leader">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80">
+                <h4>David Chen</h4>
+                <p>Chief Technology Officer</p>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+<script>
+document.querySelectorAll(".gold-hover").forEach(card => {
+    card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        card.style.setProperty("--x", x + "px");
+        card.style.setProperty("--y", y + "px");
+    });
+});
+</script>
+
+</div>
+    
+</body>
+
+</html>

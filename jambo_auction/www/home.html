@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Jambo Auctions</title>
+
+    <!-- GOOGLE FONTS -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap"
+        rel="stylesheet">
+
+    <!-- MATERIAL ICONS -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="/assets/jambo_auction/css/main.css">
+
+    <link rel="icon" href="/assets/jambo_auction/images/logo.png" type="image/png">
+
+
+
+
+</head>
+
+<body>
+    {% include "jambo_auction/templates/includes/navbar.html" %}
+
+    <div class="jambo-wrapper">
+
+        <div class="jambo-bg jambo-bg-1"></div>
+        <div class="jambo-bg jambo-bg-2"></div>
+
+        <div class="jambo-container">
+
+            <!-- ================= HERO ================= -->
+            <section class="jambo-panel hero">
+
+                <div class="hero-left">
+
+                    <div class="badge">
+                        <div class="live-dot"></div>
+                        <span>Premium Operations</span>
+                    </div>
+
+                    <h1 style="color:grey !important;">
+                        Precision Management for
+                        <span class="gold-text">Modern Auctions</span>
+                    </h1>
+
+                    <p>
+                        Experience a high-stakes auction environment powered by real-time analytics and elite inventory
+                        controls.
+                        Jambo Auctions provides the definitive platform for executive asset liquidation.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <button class="jambo-btn btn-primary">Launch Live Control</button>
+                        <button class="jambo-btn btn-secondary">View Portfolio</button>
+                    </div>
+
+                </div>
+
+                <div class="hero-right">
+
+                    <div class="jambo-panel hero-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1400&auto=format&fit=crop"
+                            alt="Dashboard">
+                    </div>
+
+                    <div class="jambo-panel floating-card">
+                        <div class="floating-flex">
+                            <span class="material-symbols-outlined">trending_up</span>
+
+                            <div>
+                                <p class="small-label">Current Vol.</p>
+                                <h3 class="mono"> KES {{ "{:,.0f}".format(current_volume) }} </h3>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ================= GRID ================= -->
+            <section class="dashboard-grid">
+
+                <!-- LIVE AUCTION (span 8) -->
+                <div class="jambo-panel card span-8">
+
+                    <h2 class="section-title">Live Auction Control</h2>
+                    <p class="section-text">Command center for ongoing premium lot events.</p>
+
+                    <div class="auction-layout">
+
+                        <div class="bid-panel">
+
+                            <div class="bid-top">
+
+                                {% if live_listing %}
+
+                                <span>
+                                    {{ live_listing.name }} - {{ live_listing.item_name }}
+                                </span>
+
+                                <span class="timer" id="auction-timer" data-end="{{ live_listing.end_datetime }}">
+                                    Loading...
+                                </span>
+
+                                {% else %}
+                                <span>No Live Auction</span>
+                                {% endif %}
+
+                            </div>
+
+                            {% if live_listing %}
+
+                            <div class="bid-row">
+                                <span>Reserve Price</span>
+                                <span class="bid-price">KES {{ live_listing.reserve_price }}</span>
+                            </div>
+
+                            <div class="bid-row active-bid">
+                                <span>Current Highest Bid</span>
+                                <span class="bid-price">
+                                    KES {{ live_listing.current_highest_bid or 0 }}
+                                </span>
+                            </div>
+
+                            <div class="bid-row">
+                                <span>Starting Bid</span>
+                                <span class="bid-price">KES {{ live_listing.starting_bid }}</span>
+                            </div>
+
+                            <a href="/auction-details?listing={{ live_listing.name }}">
+                                <button class="confirm-btn">View Auction</button>
+                            </a>
+
+                            {% endif %}
+
+                        </div>
+
+                        <div class="stats-column">
+
+                            <div class="stat-box">
+                                <p>Participants</p>
+                                <h3>{{ participants }}</h3>
+                            </div>
+
+                            <div class="stat-box">
+                                <p>Lot Success Rate</p>
+                                <h3>{{ success_rate }}%</h3>
+                            </div>
+
+                            <div class="stat-box quick-action">
+                                <span class="material-symbols-outlined">gavel</span>
+                                <p>Quick Action</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- INVENTORY (span 4) -->
+                <div class="jambo-panel card span-4">
+
+                    <h2 class="section-title">Asset Inventory</h2>
+                    <p class="section-text">Comprehensive tracking of high-value curated collections.</p>
+
+                    <div class="inventory-list">
+
+                        {% for item in items %}
+
+                        <div class="inventory-item">
+                            <img src="{{ item.item_image }}" alt="{{ item.item_name }}">
+
+                            <div>
+                                <h4>{{ item.item_name }}</h4>
+                                <p>{{ item.condition }} • {{ item.category }}</p>
+                            </div>
+                        </div>
+
+                        {% endfor %}
+
+                        {% if not items %}
+                        <div class="inventory-item">
+                            <div>
+                                <h4>No Items Available</h4>
+                                <p>No approved consignor items found.</p>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+
+                    <button class="report-btn">Full Inventory Report</button>
+
+                </div>
+
+                <!-- CLIENT RELATIONS (span 12) -->
+                <div class="jambo-panel card span-12">
+
+                    <div class="client-layout">
+
+                        <div class="client-left">
+
+                            <h2 class="section-title">Client Relations</h2>
+
+                            <p class="section-text">
+                                White-glove service management for ultra-high-net-worth clientele.
+                            </p>
+
+                            <div class="quote-box">
+                                <p>
+                                    "The level of discretion and precision Jambo provides is unmatched in the global
+                                    market."
+                                </p>
+                                <h5>— Private Collector</h5>
+                            </div>
+
+                        </div>
+
+                        <div class="client-right">
+
+                            <div class="service-box">
+                                <div class="service-header">
+                                    <div class="icon-circle">
+                                        <span class="material-symbols-outlined">verified_user</span>
+                                    </div>
+                                    <h3>Identity Escrow</h3>
+                                </div>
+                                <p>Advanced privacy layers for anonymous bidding and settlement.</p>
+                            </div>
+
+                            <div class="service-box">
+                                <div class="service-header">
+                                    <div class="icon-circle">
+                                        <span class="material-symbols-outlined">concierge</span>
+                                    </div>
+                                    <h3>Dedicated Reps</h3>
+                                </div>
+                                <p>Direct 24/7 access to your personal portfolio manager.</p>
+                            </div>
+
+                            <div class="service-box">
+                                <div class="service-header">
+                                    <div class="icon-circle">
+                                        <span class="material-symbols-outlined">account_balance</span>
+                                    </div>
+                                    <h3>Global Logistics</h3>
+                                </div>
+                                <p>Insured international transport and secure storage.</p>
+                            </div>
+
+                            <div class="service-box">
+                                <div class="service-header">
+                                    <div class="icon-circle">
+                                        <span class="material-symbols-outlined">insights</span>
+                                    </div>
+                                    <h3>Market Intel</h3>
+                                </div>
+                                <p>Exclusive quarterly reports on asset performance and trends.</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+    </div>
+
+    <script>
+        // PANEL HOVER GLOW
+        const panels = document.querySelectorAll('.jambo-panel');
+
+        panels.forEach(panel => {
+            panel.addEventListener('mousemove', function (e) {
+                const rect = panel.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                panel.style.background = `
+                radial-gradient(
+                    circle at ${x}px ${y}px,
+                    rgba(255,215,0,0.08),
+                    rgba(20,20,20,0.82) 45%
+                )
+            `;
+            });
+
+            panel.addEventListener('mouseleave', function () {
+                panel.style.background = 'rgba(20,20,20,0.78)';
+            });
+        });
+
+        // AUCTION TIMER
+        const timer = document.getElementById("auction-timer");
+
+        if (timer) {
+            const endTime = new Date(timer.dataset.end).getTime();
+
+            setInterval(function () {
+                const now = new Date().getTime();
+                const diff = endTime - now;
+
+                if (diff <= 0) {
+                    timer.innerHTML = "ENDED";
+                    return;
+                }
+
+                const hours = Math.floor(diff / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                timer.innerHTML = `${hours}h ${minutes}m ${seconds}s`;
+            }, 1000);
+        }
+    </script>
+
+</body>
+
+</html>

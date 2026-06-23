@@ -1,0 +1,119 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-06-03 10:26:28.644183",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "auction_result",
+  "payer",
+  "amount",
+  "payment_date",
+  "hammer_price",
+  "buyer_premium_rate",
+  "tax_rate",
+  "column_break_xwzm",
+  "buyer_premium_amount",
+  "tax_amount",
+  "other_fees",
+  "total_amount_due",
+  "payment_method"
+ ],
+ "fields": [
+  {
+   "fieldname": "auction_result",
+   "fieldtype": "Link",
+   "label": "Auction Result",
+   "options": "Auction Result"
+  },
+  {
+   "fieldname": "payer",
+   "fieldtype": "Link",
+   "label": "Payer",
+   "options": "Bidders"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount"
+  },
+  {
+   "fieldname": "payment_date",
+   "fieldtype": "Date",
+   "label": "Payment Date"
+  },
+  {
+   "fieldname": "hammer_price",
+   "fieldtype": "Currency",
+   "label": "Hammer Price"
+  },
+  {
+   "fieldname": "buyer_premium_rate",
+   "fieldtype": "Percent",
+   "label": "Buyer Premium Rate  %"
+  },
+  {
+   "fieldname": "buyer_premium_amount",
+   "fieldtype": "Currency",
+   "label": "Buyer Premium Amount"
+  },
+  {
+   "fieldname": "tax_rate",
+   "fieldtype": "Percent",
+   "label": "Tax Rate %"
+  },
+  {
+   "fieldname": "tax_amount",
+   "fieldtype": "Currency",
+   "label": "Tax Amount"
+  },
+  {
+   "description": "May include transport amount, storage amount per day due etc..",
+   "fieldname": "other_fees",
+   "fieldtype": "Currency",
+   "label": "Other FEES"
+  },
+  {
+   "fieldname": "payment_method",
+   "fieldtype": "Select",
+   "label": "Payment Method",
+   "options": "Credit Card\nM-Pesa\nPayPal"
+  },
+  {
+   "fieldname": "column_break_xwzm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_amount_due",
+   "fieldtype": "Currency",
+   "label": "Total Amount Due"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-03 11:23:55.685366",
+ "modified_by": "Administrator",
+ "module": "Jambo Auction",
+ "name": "Payment",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,111 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-06-22 17:59:20.477801",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+
+ "is_single": 1,
+
+ "field_order": [
+  "kyc_provider",
+  "api_section",
+  "api_key",
+  "api_secret",
+  "environment",
+  "enable_section",
+  "enable_kyc",
+  "require_kyc_for_bidding"
+ ],
+
+ "fields": [
+
+  {
+   "fieldname": "kyc_provider",
+   "fieldtype": "Select",
+   "label": "KYC Provider",
+   "options": "Didit\nVeriff\nSumsub\nVeriFast\nMock",
+   "reqd": 1
+  },
+
+  {
+   "fieldname": "api_section",
+   "fieldtype": "Section Break",
+   "label": "API Credentials"
+  },
+
+  {
+   "fieldname": "api_key",
+   "fieldtype": "Password",
+   "label": "API Key"
+  },
+
+  {
+   "fieldname": "api_secret",
+   "fieldtype": "Password",
+   "label": "API Secret"
+  },
+
+  {
+   "fieldname": "environment",
+   "fieldtype": "Select",
+   "label": "Environment",
+   "options": "Test\nProduction",
+   "default": "Test",
+   "reqd": 1
+  },
+
+  {
+   "fieldname": "enable_section",
+   "fieldtype": "Section Break",
+   "label": "System Settings"
+  },
+
+  {
+   "fieldname": "enable_kyc",
+   "fieldtype": "Check",
+   "label": "Enable KYC",
+   "default": 1
+  },
+
+  {
+   "fieldname": "require_kyc_for_bidding",
+   "fieldtype": "Check",
+   "label": "Require KYC for Bidding",
+   "default": 1
+  }
+
+ ],
+
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+
+ "links": [],
+
+ "modified": "2026-06-22 17:59:20.477801",
+ "modified_by": "Administrator",
+ "module": "Jambo Auction",
+
+ "name": "KYC Settings",
+ "owner": "Administrator",
+
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "print": 1,
+   "report": 1,
+   "share": 1,
+   "email": 1
+  }
+ ],
+
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

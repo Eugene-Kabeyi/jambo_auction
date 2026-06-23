@@ -1,36 +1,38 @@
-app_name = "jambo_auction"
-app_title = "Jambo Auction"
+app_name = "Jambo Auction"
+app_title = "Jambo Auc. Ltd"
 app_publisher = "Eugene Kabeyi"
 app_description = "Auction Management System"
 app_email = "genedyce238@gmail.com"
 app_license = "mit"
-
 # Apps
 # ------------------
 
-# required_apps = []
+required_apps = ["frappe"]
 
 # Each item in the list will be shown as an app in the apps page
-# add_to_apps_screen = [
-# 	{
-# 		"name": "jambo_auction",
-# 		"logo": "/assets/jambo_auction/logo.png",
-# 		"title": "Jambo Auction",
-# 		"route": "/jambo_auction",
-# 		"has_permission": "jambo_auction.api.permission.has_app_permission"
-# 	}
-# ]
+add_to_apps_screen = [
+ 	{
+ 		"name": "jambo_auction",
+ 		"logo": "/assets/jambo_auction/logo.png",
+ 		"title": "Jambo Auction",
+		"route": "/jambo_auction",
+   		"brand_html": "Jambo Auc. Ltd",
+		"has_permission": "jambo_auction.api.permission.has_app_permission"
+	}
+ ]
+
+fixtures = ["Navbar Settings"]
 
 # Includes in <head>
 # ------------------
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/jambo_auction/css/jambo_auction.css"
-# app_include_js = "/assets/jambo_auction/js/jambo_auction.js"
+# app_include_js = "/assets/jambo_auction/js/desk.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/jambo_auction/css/jambo_auction.css"
-# web_include_js = "/assets/jambo_auction/js/jambo_auction.js"
+# web_include_js = "/assets/jambo_auction/js/desk.js"
 
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "jambo_auction/public/scss/website"
@@ -148,7 +150,14 @@ app_license = "mit"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
+scheduler_events = {
+    "cron": {
+        "* * * * *": [
+            "jambo_auction.scheduler.close_expired_auctions"
+        ]
+    }
+}
+
 # 	"all": [
 # 		"jambo_auction.tasks.all"
 # 	],

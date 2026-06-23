@@ -1,0 +1,247 @@
+/* =========================
+   ABOUT PAGE WRAPPER
+========================= */
+body{
+    margin: 0%;
+}
+
+.jambo-about {
+    background: #0a0a0a;
+    color: #e5e2e1;
+    font-family: 'Hanken Grotesk', sans-serif;
+    padding-bottom: 100px;
+}
+
+/* =========================
+   GOLD HOVER EFFECT
+========================= */
+
+.jambo-about .gold-hover {
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.jambo-about .gold-hover::before {
+    content: "";
+    position: absolute;
+    top: var(--y, 50%);
+    left: var(--x, 50%);
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255,215,0,0.25), transparent 60%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.jambo-about .gold-hover:hover::before {
+    opacity: 1;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.jambo-about .hero {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 20px;
+    overflow: hidden;
+}
+
+.jambo-about .hero img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.25;
+    filter: grayscale(100%) brightness(40%);
+}
+
+.jambo-about .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2), #0a0a0a);
+}
+
+.jambo-about .hero-content {
+    position: relative;
+    max-width: 800px;
+    z-index: 2;
+}
+
+.jambo-about .tag {
+    color: #ffd700;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.jambo-about h1 {
+    font-size: 48px;
+    margin: 20px 0;
+}
+
+.jambo-about h1 span {
+    color: #ffd700;
+}
+
+.jambo-about p {
+    color: #b9b29f;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.jambo-about .grid {
+    width: 92%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+    margin-top: 60px;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.jambo-about .card {
+    background: #141414;
+    border: 1px solid #2a2a2a;
+    border-radius: 16px;
+    padding: 25px;
+    transition: 0.3s ease;
+}
+
+.jambo-about .card:hover {
+    border-color: #ffd700;
+    transform: translateY(-3px);
+}
+
+.jambo-about h2 {
+    color: #ffd700;
+    margin-bottom: 10px;
+}
+
+.jambo-about .muted {
+    color: #b9b29f;
+    line-height: 26px;
+}
+
+/* =========================
+   GRID SPANS
+========================= */
+
+.jambo-about .span-12 { grid-column: span 12; }
+.jambo-about .span-8 { grid-column: span 8; }
+.jambo-about .span-4 { grid-column: span 4; }
+
+/* =========================
+   STATS
+========================= */
+
+.jambo-about .stat {
+    font-size: 32px;
+    color: #ffd700;
+    font-weight: 700;
+}
+
+.jambo-about .label {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #b9b29f;
+}
+
+/* =========================
+   TIMELINE
+========================= */
+
+.jambo-about .timeline {
+    border-left: 2px solid #333;
+    padding-left: 20px;
+}
+
+.jambo-about .timeline div {
+    margin-bottom: 18px;
+}
+
+.jambo-about .dot {
+    width: 8px;
+    height: 8px;
+    background: #ffd700;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/* =========================
+   LEADERSHIP
+========================= */
+
+.jambo-about .leaders {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.jambo-about .leader {
+    text-align: center;
+}
+
+.jambo-about .leader img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 12px;
+    filter: grayscale(100%);
+    transition: 0.4s;
+}
+
+.jambo-about .leader img:hover {
+    filter: grayscale(0%);
+}
+
+.jambo-about .leader h4 {
+    margin-top: 10px;
+    color: #fff;
+}
+
+.jambo-about .leader p {
+    font-size: 12px;
+    color: #ffd700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width: 900px){
+    .jambo-about .span-8,
+    .jambo-about .span-4,
+    .jambo-about .span-12 {
+        grid-column: span 12;
+    }
+
+    .jambo-about .leaders {
+        grid-template-columns: 1fr;
+    }
+
+    .jambo-about h1 {
+        font-size: 34px;
+    }
+}
