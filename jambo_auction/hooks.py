@@ -21,7 +21,8 @@ add_to_apps_screen = [
 	}
  ]
 
-fixtures = ["Navbar Settings"]
+
+app_include_js = "/assets/jambo_auction/js/navbar_overrider.js"
 
 # Includes in <head>
 # ------------------

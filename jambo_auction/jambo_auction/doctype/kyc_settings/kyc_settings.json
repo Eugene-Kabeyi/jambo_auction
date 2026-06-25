@@ -1,19 +1,19 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2026-06-22 17:59:20.477801",
  "doctype": "DocType",
  "engine": "InnoDB",
-
  "is_single": 1,
+ "module": "Jambo Auction",
+ "name": "KYC Settings",
 
  "field_order": [
-  "kyc_provider",
-  "api_section",
-  "api_key",
-  "api_secret",
-  "environment",
-  "enable_section",
+  "ai_section",
+  "ocr_api_key",
+  "ocr_language",
+  "confidence_threshold",
+
+  "system_section",
   "enable_kyc",
   "require_kyc_for_bidding"
  ],
@@ -21,42 +21,35 @@
  "fields": [
 
   {
-   "fieldname": "kyc_provider",
-   "fieldtype": "Select",
-   "label": "KYC Provider",
-   "options": "Didit\nVeriff\nSumsub\nVeriFast\nMock",
-   "reqd": 1
-  },
-
-  {
-   "fieldname": "api_section",
+   "fieldname": "ai_section",
    "fieldtype": "Section Break",
-   "label": "API Credentials"
+   "label": "OCR AI Configuration"
   },
 
   {
-   "fieldname": "api_key",
+   "fieldname": "ocr_api_key",
    "fieldtype": "Password",
-   "label": "API Key"
-  },
-
-  {
-   "fieldname": "api_secret",
-   "fieldtype": "Password",
-   "label": "API Secret"
-  },
-
-  {
-   "fieldname": "environment",
-   "fieldtype": "Select",
-   "label": "Environment",
-   "options": "Test\nProduction",
-   "default": "Test",
+   "label": "OCR.Space API Key",
    "reqd": 1
   },
 
   {
-   "fieldname": "enable_section",
+   "fieldname": "ocr_language",
+   "fieldtype": "Select",
+   "label": "OCR Language",
+   "options": "eng\nauto",
+   "default": "eng"
+  },
+
+  {
+   "fieldname": "confidence_threshold",
+   "fieldtype": "Float",
+   "label": "Confidence Threshold",
+   "default": 0.80
+  },
+
+  {
+   "fieldname": "system_section",
    "fieldtype": "Section Break",
    "label": "System Settings"
   },
@@ -77,18 +70,6 @@
 
  ],
 
- "grid_page_length": 50,
- "index_web_pages_for_search": 1,
-
- "links": [],
-
- "modified": "2026-06-22 17:59:20.477801",
- "modified_by": "Administrator",
- "module": "Jambo Auction",
-
- "name": "KYC Settings",
- "owner": "Administrator",
-
  "permissions": [
   {
    "role": "System Manager",
@@ -106,6 +87,5 @@
 
  "row_format": "Dynamic",
  "sort_field": "modified",
- "sort_order": "DESC",
- "states": []
+ "sort_order": "DESC"
 }

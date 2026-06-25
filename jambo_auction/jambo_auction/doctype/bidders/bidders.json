@@ -4,18 +4,25 @@
  "creation": "2026-06-02 11:12:45.556956",
  "doctype": "DocType",
  "engine": "InnoDB",
+ "module": "Jambo Auction",
+ "name": "Bidders",
+
  "field_order": [
   "user",
   "full_name",
   "mobile_phone",
+
   "status_section",
   "status",
+
   "kyc_section",
   "kyc_status",
-  "kyc_provider",
-  "kyc_reference_id",
-  "kyc_verified_on"
+  "latest_kyc",
+  "kyc_verified_on",
+  "kyc_rejection_reason",
+  "last_kyc_sync"
  ],
+
  "fields": [
   {
    "fieldname": "user",
@@ -29,7 +36,8 @@
   {
    "fieldname": "full_name",
    "fieldtype": "Data",
-   "label": "Full Name"
+   "label": "Full Name",
+   "read_only": 1
   },
 
   {
@@ -67,34 +75,34 @@
   },
 
   {
-   "fieldname": "kyc_provider",
-   "fieldtype": "Data",
-   "label": "KYC Provider"
-  },
-
-  {
-   "fieldname": "kyc_reference_id",
-   "fieldtype": "Data",
-   "label": "KYC Reference ID"
+   "fieldname": "latest_kyc",
+   "fieldtype": "Link",
+   "label": "Latest KYC Verification",
+   "options": "KYC Verification",
+   "read_only": 1
   },
 
   {
    "fieldname": "kyc_verified_on",
    "fieldtype": "Datetime",
-   "label": "KYC Verified On"
+   "label": "KYC Verified On",
+   "read_only": 1
+  },
+
+  {
+   "fieldname": "kyc_rejection_reason",
+   "fieldtype": "Small Text",
+   "label": "Rejection Reason",
+   "read_only": 1
+  },
+
+  {
+   "fieldname": "last_kyc_sync",
+   "fieldtype": "Datetime",
+   "label": "Last Sync",
+   "read_only": 1
   }
  ],
-
- "grid_page_length": 50,
- "index_web_pages_for_search": 1,
-
- "links": [],
-
- "modified": "2026-06-22 17:10:22.931685",
- "modified_by": "Administrator",
- "module": "Jambo Auction",
- "name": "Bidders",
- "owner": "Administrator",
 
  "permissions": [
   {
@@ -103,8 +111,6 @@
    "write": 1,
    "create": 1,
    "delete": 1,
-   "submit": 0,
-   "cancel": 0,
    "export": 1,
    "print": 1,
    "report": 1,
@@ -115,6 +121,5 @@
 
  "row_format": "Dynamic",
  "sort_field": "modified",
- "sort_order": "DESC",
- "states": []
+ "sort_order": "DESC"
 }
