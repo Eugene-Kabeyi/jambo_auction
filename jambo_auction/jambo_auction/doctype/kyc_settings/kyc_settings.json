@@ -1,91 +1,86 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "creation": "2026-06-25 13:48:45.585113",
  "doctype": "DocType",
  "engine": "InnoDB",
- "is_single": 1,
- "module": "Jambo Auction",
- "name": "KYC Settings",
-
  "field_order": [
   "ai_section",
   "ocr_api_key",
   "ocr_language",
   "confidence_threshold",
-
   "system_section",
   "enable_kyc",
   "require_kyc_for_bidding"
  ],
-
  "fields": [
-
   {
    "fieldname": "ai_section",
    "fieldtype": "Section Break",
    "label": "OCR AI Configuration"
   },
-
   {
    "fieldname": "ocr_api_key",
    "fieldtype": "Password",
+   "in_list_view": 1,
    "label": "OCR.Space API Key",
    "reqd": 1
   },
-
   {
+   "default": "eng",
    "fieldname": "ocr_language",
    "fieldtype": "Select",
    "label": "OCR Language",
-   "options": "eng\nauto",
-   "default": "eng"
+   "options": "eng\nauto"
   },
-
   {
+   "default": "0.8",
    "fieldname": "confidence_threshold",
    "fieldtype": "Float",
-   "label": "Confidence Threshold",
-   "default": 0.80
+   "label": "Confidence Threshold"
   },
-
   {
    "fieldname": "system_section",
    "fieldtype": "Section Break",
    "label": "System Settings"
   },
-
   {
+   "default": "1",
    "fieldname": "enable_kyc",
    "fieldtype": "Check",
-   "label": "Enable KYC",
-   "default": 1
+   "label": "Enable KYC"
   },
-
   {
+   "default": "1",
    "fieldname": "require_kyc_for_bidding",
    "fieldtype": "Check",
-   "label": "Require KYC for Bidding",
-   "default": 1
+   "label": "Require KYC for Bidding"
   }
-
  ],
-
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-06-25 13:54:14.674901",
+ "modified_by": "Administrator",
+ "module": "Jambo Auction",
+ "name": "KYC Settings",
+ "owner": "Administrator",
  "permissions": [
   {
-   "role": "System Manager",
-   "read": 1,
-   "write": 1,
    "create": 1,
    "delete": 1,
-   "export": 1,
+   "email": 1,
    "print": 1,
-   "report": 1,
+   "read": 1,
+   "role": "System Manager",
    "share": 1,
-   "email": 1
+   "write": 1
   }
  ],
-
  "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": []
 }

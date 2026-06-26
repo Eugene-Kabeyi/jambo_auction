@@ -21,8 +21,9 @@ frappe.after_ajax(() => {
 
                 <span
                     style="
-                        font-weight:700;
-                        color:#ffd700;
+                        padding-top: 3px
+                        font-weight:500;
+                        color:#8B8000;
                         font-size:15px;
                         letter-spacing:1px;
                     ">

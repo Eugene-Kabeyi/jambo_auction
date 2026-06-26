@@ -12,70 +12,49 @@ class Bidders(Document):
         self.update_kyc_information()
 
     def set_full_name(self):
-        """
-        Automatically populate full_name from User
-        """
 
         if not self.user:
             return
 
-        full_name = frappe.db.get_value(
-            "User",
-            self.user,
-            "full_name"
+        self.full_name = (
+            frappe.db.get_value(
+                "User",
+                self.user,
+                "full_name"
+            ) or ""
         )
 
-        if full_name:
-            self.full_name = full_name
-
     def update_kyc_information(self):
-        """
-        Get the most recent KYC Verification record
-        and update bidder KYC fields.
-        """
 
-        latest_kyc = frappe.get_all(
+        latest_kyc = frappe.db.get_value(
             "KYC Verification",
-            filters={
-                "bidder": self.name
-            },
-            fields=[
-                "name",
-                "status",
-                "modified"
-            ],
+            {"bidder": self.name},
+            ["name", "status"],
             order_by="creation desc",
-            limit=1
+            as_dict=True
         )
 
         if not latest_kyc:
             self.kyc_status = "Not Started"
-            self.latest_kyc = None
             return
 
-        kyc = latest_kyc[0]
-
-        self.latest_kyc = kyc.name
-        self.kyc_status = kyc.status
+        self.kyc_status = latest_kyc.status
         self.last_kyc_sync = frappe.utils.now()
 
-        if kyc.status == "Verified":
+        if self.kyc_status == "Verified":
 
-            verification_date = frappe.db.get_value(
+            self.kyc_verified_on = frappe.db.get_value(
                 "KYC Verification",
-                kyc.name,
-                "modified"
+                latest_kyc.name,
+                "verification_date"
             )
 
-            self.kyc_verified_on = verification_date
-            self.kyc_rejection_reason = None
+            self.kyc_rejection_reason = ""
 
-        elif kyc.status == "Rejected":
+        elif self.kyc_status == "Rejected":
 
-            reason = frappe.db.get_value(
+            self.kyc_rejection_reason = frappe.db.get_value(
                 "KYC Verification",
-                kyc.name,
+                latest_kyc.name,
                 "rejection_reason"
             )
-
-            self.kyc_rejection_reason = reason
