@@ -1,0 +1,169 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-06-26 15:21:16.397500",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "bidder",
+  "document_type",
+  "submitted_on",
+  "ocr_section",
+  "processing_status",
+  "extracted_text",
+  "extracted_name",
+  "id_number",
+  "confidence_score",
+  "verification_section",
+  "status",
+  "verification_date",
+  "verified_by",
+  "rejection_reason",
+  "audit_section",
+  "ocr_raw_response",
+  "front_image",
+  "back_image"
+ ],
+ "fields": [
+  {
+   "fieldname": "bidder",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Bidder",
+   "options": "Bidders",
+   "reqd": 1
+  },
+  {
+   "fieldname": "document_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Document Type",
+   "options": "National ID\nPassport\nDriving License",
+   "reqd": 1
+  },
+  {
+   "fieldname": "front_image",
+   "fieldtype": "Attach Image",
+   "label": "Front Image",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.document_type=='National ID'",
+   "fieldname": "back_image",
+   "fieldtype": "Attach Image",
+   "label": "Back Image"
+  },
+  {
+   "fieldname": "submitted_on",
+   "fieldtype": "Datetime",
+   "label": "Submitted On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ocr_section",
+   "fieldtype": "Section Break",
+   "label": "OCR Results"
+  },
+  {
+   "default": "Queued",
+   "fieldname": "processing_status",
+   "fieldtype": "Select",
+   "label": "Processing Status",
+   "options": "Queued\nProcessing\nCompleted\nFailed",
+   "read_only": 1
+  },
+  {
+   "fieldname": "extracted_text",
+   "fieldtype": "Long Text",
+   "label": "Extracted Text",
+   "read_only": 1
+  },
+  {
+   "fieldname": "extracted_name",
+   "fieldtype": "Data",
+   "label": "Extracted Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "id_number",
+   "fieldtype": "Data",
+   "label": "Serial Number",
+   "read_only": 1
+  },
+  {
+   "fieldname": "confidence_score",
+   "fieldtype": "Float",
+   "label": "Confidence Score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "verification_section",
+   "fieldtype": "Section Break",
+   "label": "Verification Result"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Pending\nVerified\nRejected",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "verification_date",
+   "fieldtype": "Datetime",
+   "label": "Verification Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "verified_by",
+   "fieldtype": "Link",
+   "label": "Verified By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "rejection_reason",
+   "fieldtype": "Small Text",
+   "label": "Rejection Reason"
+  },
+  {
+   "fieldname": "audit_section",
+   "fieldtype": "Section Break",
+   "label": "Audit Information"
+  },
+  {
+   "fieldname": "ocr_raw_response",
+   "fieldtype": "Long Text",
+   "hidden": 1,
+   "label": "OCR Raw Response",
+   "read_only": 1
+  }
+ ],
+ "links": [],
+ "modified": "2026-06-26 16:55:35.775315",
+ "modified_by": "Administrator",
+ "module": "Jambo Auction",
+ "name": "KYC Verification",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

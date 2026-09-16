@@ -1,125 +1,138 @@
 {
- "actions": [],
- "allow_rename": 1,
- "creation": "2026-06-02 11:12:45.556956",
- "doctype": "DocType",
- "engine": "InnoDB",
- "module": "Jambo Auction",
- "name": "Bidders",
+"actions": [],
+"allow_rename": 1,
+"creation": "2026-06-02 11:12:45.556956",
+"doctype": "DocType",
+"engine": "InnoDB",
+"module": "Jambo Auction",
+"name": "Bidders",
 
- "field_order": [
-  "user",
-  "full_name",
-  "mobile_phone",
+"field_order": [
+"user",
+"full_name",
+"mobile_phone",
 
-  "status_section",
-  "status",
+"status_section",
+"status",
 
-  "kyc_section",
-  "kyc_status",
-  "latest_kyc",
-  "kyc_verified_on",
-  "kyc_rejection_reason",
-  "last_kyc_sync"
- ],
+"kyc_section",
+"kyc_status",
+"latest_kyc",
+"kyc_provider",
+"kyc_verified_on",
+"kyc_rejection_reason",
+"last_kyc_sync"
+],
 
- "fields": [
-  {
-   "fieldname": "user",
-   "fieldtype": "Link",
-   "label": "User",
-   "options": "User",
-   "unique": 1,
-   "reqd": 1
-  },
+"fields": [
+{
+"fieldname": "user",
+"fieldtype": "Link",
+"label": "User",
+"options": "User",
+"unique": 1,
+"reqd": 1,
+"in_list_view": 1
+},
 
-  {
-   "fieldname": "full_name",
-   "fieldtype": "Data",
-   "label": "Full Name",
-   "read_only": 1
-  },
+{
+"fieldname": "full_name",
+"fieldtype": "Data",
+"label": "Full Name",
+"read_only": 1,
+"in_list_view": 1
+},
 
-  {
-   "fieldname": "mobile_phone",
-   "fieldtype": "Phone",
-   "label": "Mobile Phone"
-  },
+{
+"fieldname": "mobile_phone",
+"fieldtype": "Phone",
+"label": "Mobile Phone"
+},
 
-  {
-   "fieldname": "status_section",
-   "fieldtype": "Section Break",
-   "label": "Account Status"
-  },
+{
+"fieldname": "status_section",
+"fieldtype": "Section Break",
+"label": "Account Status"
+},
 
-  {
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "label": "Status",
-   "options": "Active\nSuspended\nBlocked",
-   "default": "Active"
-  },
+{
+"fieldname": "status",
+"fieldtype": "Select",
+"label": "Status",
+"options": "Active\nSuspended\nBlocked",
+"default": "Active",
+"in_list_view": 1
+},
 
-  {
-   "fieldname": "kyc_section",
-   "fieldtype": "Section Break",
-   "label": "KYC Verification"
-  },
+{
+"fieldname": "kyc_section",
+"fieldtype": "Section Break",
+"label": "KYC Verification"
+},
 
-  {
-   "fieldname": "kyc_status",
-   "fieldtype": "Select",
-   "label": "KYC Status",
-   "options": "Not Started\nPending\nVerified\nRejected",
-   "default": "Not Started"
-  },
+{
+"fieldname": "kyc_status",
+"fieldtype": "Select",
+"label": "KYC Status",
+"options": "Not Started\nPending\nVerified\nRejected",
+"default": "Not Started",
+"read_only": 1,
+"in_list_view": 1
+},
 
-  {
-   "fieldname": "latest_kyc",
-   "fieldtype": "Link",
-   "label": "Latest KYC Verification",
-   "options": "KYC Verification",
-   "read_only": 1
-  },
+{
+"fieldname": "latest_kyc",
+"fieldtype": "Link",
+"label": "Latest KYC Verification",
+"options": "KYC Verification",
+"read_only": 1
+},
 
-  {
-   "fieldname": "kyc_verified_on",
-   "fieldtype": "Datetime",
-   "label": "KYC Verified On",
-   "read_only": 1
-  },
+{
+"fieldname": "kyc_provider",
+"fieldtype": "Data",
+"label": "KYC Provider",
+"read_only": 1
+},
 
-  {
-   "fieldname": "kyc_rejection_reason",
-   "fieldtype": "Small Text",
-   "label": "Rejection Reason",
-   "read_only": 1
-  },
+{
+"fieldname": "kyc_verified_on",
+"fieldtype": "Datetime",
+"label": "KYC Verified On",
+"read_only": 1
+},
 
-  {
-   "fieldname": "last_kyc_sync",
-   "fieldtype": "Datetime",
-   "label": "Last Sync",
-   "read_only": 1
-  }
- ],
+{
+"fieldname": "kyc_rejection_reason",
+"fieldtype": "Small Text",
+"label": "Rejection Reason",
+"read_only": 1
+},
 
- "permissions": [
-  {
-   "role": "System Manager",
-   "read": 1,
-   "write": 1,
-   "create": 1,
-   "delete": 1,
-   "export": 1,
-   "print": 1,
-   "report": 1,
-   "share": 1,
-   "email": 1
-  }
- ],
+{
+"fieldname": "last_kyc_sync",
+"fieldtype": "Datetime",
+"label": "Last Sync",
+"read_only": 1
+}
+],
 
- "row_format": "Dynamic",
- "sort_field": "modified",
- "sort_order": "DESC"
+"permissions": [
+{
+"role": "System Manager",
+"read": 1,
+"write": 1,
+"create": 1,
+"delete": 1,
+"export": 1,
+"print": 1,
+"report": 1,
+"share": 1,
+"email": 1
+}
+],
+
+"row_format": "Dynamic",
+"sort_field": "modified",
+"sort_order": "DESC"
 }
